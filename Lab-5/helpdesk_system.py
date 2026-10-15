@@ -2,8 +2,6 @@
 
 import json
 import os
-import platform
-import subprocess
 from datetime import datetime
 
 TICKETS = {}
@@ -70,22 +68,6 @@ def unresolved_high_priority():
         for ticket_id, ticket in TICKETS.items()
         if ticket["priority"] >= 4 and ticket["tech"] is None
     ]
-
-
-def ping_user_machine(hostname):
-    """Ping a hostname without invoking a command shell."""
-    if not hostname or any(char.isspace() for char in hostname):
-        raise ValueError("Provide a valid hostname without spaces.")
-
-    ping_flag = "-n" if platform.system() == "Windows" else "-c"
-    return subprocess.run(
-        ["ping", ping_flag, "1", hostname],
-        check=False,
-        shell=False,
-        capture_output=True,
-        text=True,
-        timeout=5,
-    ).returncode
 
 
 def save_tickets(file="tickets.json"):

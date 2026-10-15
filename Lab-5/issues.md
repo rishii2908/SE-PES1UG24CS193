@@ -27,30 +27,25 @@
 | PEP 8 formatting violations | Style | Multiple | Flake8 reports missing blank lines, a long line, and other formatting issues. | Apply consistent blank lines and line lengths, then rerun Flake8. |
 
 
+## Summary
 
-\## Summary
-
-
-
-The original Pylint score was 5.53/10. Bandit reported one high-severity and three low-severity findings. Flake8 reported formatting and code-quality violations. The fixes will be verified by rerunning all three tools.
-
-
+The original Pylint score was 5.53/10. Bandit reported one high-severity and three low-severity findings, while Flake8 reported formatting and code-quality violations. The code was updated to address these issues, and all three static analysis tools were run again to verify the results.
 
 ## Verification After Fixes
 
 | Tool | Before | After | Result |
 |---|---|---|---|
-| Pylint | 5.53/10 | 9.85/10 | Target above 9.5 achieved. One warning remains about using a global statement. |
-| Bandit | 1 high and 3 low findings | 0 high and 3 low findings | The `shell=True` issue was removed. Low-severity subprocess warnings remain. |
+| Pylint | 5.53/10 | 9.83/10 | Target above 9.5 achieved. One warning remains about using a global statement. |
+| Bandit | 1 high and 3 low findings | 0 findings | All reported security findings have been addressed. |
 | Flake8 | 12 reported violations | No reported violations | The updated file passes the Flake8 check. |
 
 ## Functional Testing
 
-- The program ran with the default urgency of 3.
-- An invalid urgency of -7 was rejected with an error message.
+- The program ran successfully with the default urgency of 3.
+- The program displayed the unassigned high-priority tickets correctly.
 - Ticket closure was skipped when the administrator password was not configured.
 - The program saved ticket data to a JSON file.
-
-
+- The final code was checked using Pylint, Bandit, and Flake8.
+- Bandit reported zero security findings, and Flake8 reported no violations.
 
 

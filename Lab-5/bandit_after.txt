@@ -1,65 +1,22 @@
-Run started:2026-10-15 10:12:16.897391+00:00
+Run started:2026-10-15 10:59:34.564731+00:00
 
 Test results:
->> Issue: [B404:blacklist] Consider possible security implications associated with the subprocess module.
-   Severity: Low   Confidence: High
-   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
-   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess
-   Location: .\helpdesk_system.py:6:0
-5	import platform
-6	import subprocess
-7	from datetime import datetime
-
---------------------------------------------------
->> Issue: [B607:start_process_with_partial_path] Starting a process with a partial executable path
-   Severity: Low   Confidence: High
-   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
-   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html
-   Location: .\helpdesk_system.py:81:11
-80	    ping_flag = "-n" if platform.system() == "Windows" else "-c"
-81	    return subprocess.run(
-82	        ["ping", ping_flag, "1", hostname],
-83	        check=False,
-84	        shell=False,
-85	        capture_output=True,
-86	        text=True,
-87	        timeout=5,
-88	    ).returncode
-89	
-
---------------------------------------------------
->> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
-   Severity: Low   Confidence: High
-   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
-   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html
-   Location: .\helpdesk_system.py:84:11
-83	        check=False,
-84	        shell=False,
-85	        capture_output=True,
-86	        text=True,
-87	        timeout=5,
-88	    ).returncode
-89	
-90	
-91	def save_tickets(file="tickets.json"):
-92	    """Save current tickets as JSON."""
-
---------------------------------------------------
+	No issues identified.
 
 Code scanned:
-	Total lines of code: 98
+	Total lines of code: 83
 	Total lines skipped (#nosec): 0
 	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
 
 Run metrics:
 	Total issues (by severity):
 		Undefined: 0
-		Low: 3
+		Low: 0
 		Medium: 0
 		High: 0
 	Total issues (by confidence):
 		Undefined: 0
 		Low: 0
 		Medium: 0
-		High: 3
+		High: 0
 Files skipped (0):
